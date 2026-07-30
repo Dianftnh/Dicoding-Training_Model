@@ -25,13 +25,7 @@ Dicoding-Training_Model/
 │   ├── screenshoot_dashboard.jpg
 │   └── screenshoot_artifak.jpg
 │
-├── Workflow-CI/                        # Kriteria 3 — CI/CD (repo terpisah)
-│   ├── .github/workflows/ci.yml
-│   └── MLProject/
-│       ├── modelling.py
-│       ├── MLProject
-│       ├── conda.yaml
-│       └── dataset_preprocessing/
+├── Workflow-CI.txt                    # Link ke repo Dicoding-Workflow-CI
 │
 └── Monitoring_dan_Logging/             # Kriteria 4 — Monitoring
     ├── 2.prometheus.yml
