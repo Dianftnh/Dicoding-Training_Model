@@ -25,6 +25,7 @@ Dicoding-Training_Model/
 │   ├── screenshoot_dashboard.jpg
 │   └── screenshoot_artifak.jpg
 │
+├── Colab_Train_Monitor.ipynb           # Notebook Colab (train + monitor)
 ├── Workflow-CI.txt                    # Link ke repo Dicoding-Workflow-CI
 │
 └── Monitoring_dan_Logging/             # Kriteria 4 — Monitoring
@@ -64,6 +65,17 @@ Dicoding-Training_Model/
 
 ## 🚀 Cara Menjalankan
 
+### Colab (Recommended)
+
+Upload `Colab_Train_Monitor.ipynb` ke Google Colab, jalankan step by step:
+
+1. Clone repo dari GitHub
+2. Install dependencies
+3. Training + tuning
+4. Serve model + monitoring
+
+Atau upload folder ke Drive dan akses langsung.
+
 ### Lokal
 
 ```bash
@@ -73,18 +85,6 @@ python modelling.py          # Basic (autolog)
 python modelling_tuning.py   # Skilled (manual logging + tuning)
 mlflow ui                    # Buka MLflow UI
 ```
-
-### Colab
-
-1. Upload folder ke Google Drive
-2. Buka notebook baru, jalankan:
-   ```python
-   from google.colab import drive
-   drive.mount('/content/drive')
-   %cd /content/drive/MyDrive/.../Membangun_model
-   !pip install -r requirements.txt
-   %run modelling_tuning.py
-   ```
 
 ---
 
@@ -119,6 +119,8 @@ Trigger otomatis saat push ke `main` yang mengubah `MLProject/`.
 ## 📊 Kriteria 4 — Monitoring & Logging
 
 **Prometheus + Grafana** untuk memonitor performa model saat serving.
+
+Gunakan `Colab_Train_Monitor.ipynb` (notebook lengkap) atau `Monitoring_dan_Logging/Colab_Monitoring.ipynb` (khusus monitoring).
 
 Jalankan exporter, Prometheus (Docker), dan Grafana (Docker) untuk melihat metrik.
 
