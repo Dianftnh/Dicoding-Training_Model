@@ -16,19 +16,31 @@ Folder ini berisi implementasi **Kriteria 2 — Membangun Model Machine Learning
 ## 🗂️ Struktur Folder
 
 ```
-Membangun_model/
-├── modelling.py                        # Basic MLflow autolog
-├── modelling_tuning.py                 # Hyperparameter tuning + manual logging
-├── dataset_preprocessing/              # Data preprocessing (.npy, .pkl)
-│   ├── X_train.npy, X_val.npy, X_test.npy
-│   ├── y_train.npy, y_val.npy, y_test.npy
-│   ├── label_encoder.pkl
-│   └── tokenizer.pkl
-├── model_output/                       # Output model (generated saat training)
-├── requirements.txt                    # Dependencies
-├── screenshoot_dashboard.jpg           # Screenshot MLflow dashboard
-├── screenshoot_artifak.jpg             # Screenshot MLflow artifacts
-└── DagsHub.txt                         # Tidak dipakai (Menengah)
+Dicoding-Training_Model/
+├── Membangun_model/                    # Kriteria 2 — Modelling
+│   ├── modelling.py
+│   ├── modelling_tuning.py
+│   ├── dataset_preprocessing/
+│   ├── model_output/
+│   ├── screenshoot_dashboard.jpg
+│   └── screenshoot_artifak.jpg
+│
+├── Workflow-CI/                        # Kriteria 3 — CI/CD (repo terpisah)
+│   ├── .github/workflows/ci.yml
+│   └── MLProject/
+│       ├── modelling.py
+│       ├── MLProject
+│       ├── conda.yaml
+│       └── dataset_preprocessing/
+│
+└── Monitoring_dan_Logging/             # Kriteria 4 — Monitoring
+    ├── 2.prometheus.yml
+    ├── 3.prometheus_exporter.py
+    ├── 7.Inference.py
+    ├── 1.bukti_serving/
+    ├── 4.bukti monitoring Prometheus/
+    ├── 5.bukti monitoring Grafana/
+    └── 6.bukti alerting Grafana/
 ```
 
 ---
@@ -99,6 +111,22 @@ Ambil screenshot:
 - **Artifacts**: Klik salah satu run → tab Artifacts
 
 Simpan sebagai `screenshoot_dashboard.jpg` dan `screenshoot_artifak.jpg`.
+
+---
+
+## 🔁 Kriteria 3 — Workflow-CI (Repo Terpisah)
+
+**GitHub Actions + MLflow Project** untuk retraining otomatis.
+
+Trigger otomatis saat push ke `main` yang mengubah `MLProject/`.
+
+> Folder `Workflow-CI/` berisi kode untuk dipush ke repo GitHub terpisah.
+
+## 📊 Kriteria 4 — Monitoring & Logging
+
+**Prometheus + Grafana** untuk memonitor performa model saat serving.
+
+Jalankan exporter, Prometheus (Docker), dan Grafana (Docker) untuk melihat metrik.
 
 ---
 
