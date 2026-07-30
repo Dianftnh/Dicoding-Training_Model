@@ -133,6 +133,11 @@ def train_and_log(params, run_name):
         # Log model
         mlflow.tensorflow.log_model(model, f"model_{run_name}")
 
+        # Save to model_output/
+        model_path = os.path.join(MODEL_DIR, f"{run_name}.keras")
+        model.save(model_path)
+        print(f"  Model saved: {model_path}")
+
         print(f"[{run_name}] Test Acc: {test_accuracy:.4f}, F1: {test_f1:.4f}")
         return test_accuracy
 
